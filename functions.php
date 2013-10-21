@@ -131,6 +131,17 @@ function readly_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'readly_scripts' );
 
+/**
+ * Admin styles
+ */
+function readly_admin_scripts_styles() {
+	wp_enqueue_style('readly-admin-style', get_template_directory_uri().'/admin.css');
+
+	wp_enqueue_script('readly-admin', get_template_directory_uri().'/js/admin.js', array(), '20130718', true);
+}
+
+add_action('admin_enqueue_scripts', 'readly_admin_scripts_styles');
+
 // This theme uses its own gallery styles.
 add_filter( 'use_default_gallery_style', '__return_false' );
 
@@ -180,4 +191,123 @@ add_action( 'wp_footer', 'readly_infinite_scroll_js', 100 );
 class wpShower {
 	public static $background = '#f4f4f2';
 	public static $color = '#1e83cb';
+
+	/**
+	 * Function to get the content earlier than it needs to be printed; shortcodes are catched this way
+	 */
+	public static function filteredContent($content = null) {
+		if ($content === null) {
+			$content = get_the_content(__('Read More<span></span>', 'readly'));
+		}
+		$content = apply_filters('the_content', $content);
+		$content = str_replace('<p></p>', '', $content); // TODO: fix it (youtube embed adds empty paragraphs?)
+		return str_replace(']]>', ']]&gt;', $content);
+	}
+}
+
+/* Audio & video boxes for posts */
+function readly_big_video_box($post) {
+	$value = get_post_meta($post->ID, 'readly_big_video', true);
+	?>
+	<p>
+		<textarea id="readly_big_video" name="readly_big_video" rows="4" cols="40" placeholder="<?php _e('Enter your video link, embed code or shortcode here:', 'readly'); ?>"><?php echo $value ?></textarea>
+	</p>
+	<?php
+}
+
+function readly_big_audio_box($post) {
+	$value = get_post_meta($post->ID, 'readly_big_audio', true);
+	?>
+	<p>
+		<textarea id="readly_big_audio" name="readly_big_audio" rows="4" cols="40" placeholder="<?php _e('Enter your audio link, embed code or shortcode here:', 'readly'); ?>"><?php echo $value ?></textarea>
+	</p>
+	<?php
+}
+
+function readly_boxes() {
+	add_meta_box(
+		'readly_big_video_box',
+		__('Video', 'readly'),
+		'readly_big_video_box',
+		'post',
+		'normal',
+		'high'
+	);
+	add_meta_box(
+		'readly_big_audio_box',
+		__('Audio', 'readly'),
+		'readly_big_audio_box',
+		'post',
+		'normal',
+		'high'
+	);
+}
+
+add_action('add_meta_boxes', 'readly_boxes');
+
+/* Save action for posts */
+function readly_save_postdata($post_id) {
+	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+		return $post_id;
+
+	if (!isset($_POST['post_type'])) {
+		return $post_id;
+	}
+
+	// First we need to check if the current user is authorised to do this action.
+	if ('page' == $_POST['post_type']) {
+		if (!current_user_can('edit_page', $post_id))
+			return;
+	}
+	else {
+		if (!current_user_can('edit_post', $post_id))
+			return;
+	}
+
+	if ($_POST['post_type'] == 'post') {
+		$media = array('audio' => false, 'video' => false);
+		$format = get_post_format(get_the_ID());
+		if ($format == 'audio' || $format == 'video') $media[$format] = true;
+		foreach ($media as $key => $save) {
+			if ($save) {
+				$value = isset($_POST['readly_big_'.$key]) ? $_POST['readly_big_'.$key] : '';
+				if (!update_post_meta($post_id, 'readly_big_'.$key, $value)) {
+					add_post_meta($post_id, 'readly_big_'.$key, $value, true);
+				}
+			}
+			else {
+				update_post_meta($post_id, 'readly_big_'.$key, '');
+			}
+		}
+	}
+}
+
+add_action('save_post', 'readly_save_postdata');
+
+function readly_formatted_audio() {
+	if (post_password_required()) return;
+
+	$meta = get_post_meta(get_the_ID(), 'readly_big_audio', true);
+	?>
+
+	<div class="entry-media entry-audio">
+		<?php echo wpShower::filteredContent($meta); ?>
+	</div><!-- .entry-media -->
+
+	<?php
+}
+
+function readly_formatted_video() {
+	if (post_password_required()) return;
+
+	$meta = get_post_meta(get_the_ID(), 'readly_big_video', true);
+	?>
+
+	<div class="entry-media entry-video">
+		<div class="video-content">
+			<?php echo wpShower::filteredContent($meta); ?>
+		</div>
+	</div><!-- .entry-media -->
+
+	<?php
 }

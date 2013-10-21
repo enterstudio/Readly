@@ -1679,9 +1679,4 @@ input[type="password"].password_protected {
 		font-size: 28px;
 		font-size: 2.8rem;
 	}
-	.format-audio .audio-content {
-		margin: 0;
-		padding: 0;
-		width: 100%;
-	}
 }

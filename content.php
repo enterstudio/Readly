@@ -34,37 +34,14 @@
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 	<?php else : ?>
-		<?php if ( 'audio' == $post_format ) : ?>
-
-		<div class="entry-media">
-			<div class="audio-content">
-				<?php the_post_format_audio(); ?>
-			</div><!-- .audio-content -->
-		</div><!-- .entry-media -->
-
-		<div class="entry-content">
-			<?php the_remaining_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'readly' ) ); ?>
-		</div><!-- .entry-content -->
-
-		<?php elseif ( 'video' == $post_format ) : ?>
-
-		<div class="entry-media">
-			<div class="video-content">
-				<?php the_post_format_video(); ?>
-			</div>
-		</div><!-- .entry-media -->
-
-		<div class="entry-content">
-			<?php the_remaining_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'readly' ) ); ?>
-		</div>
-
-		<?php else : ?>
+		<?php
+		if ( 'audio' == $post_format ) readly_formatted_audio();
+		elseif ( 'video' == $post_format ) readly_formatted_video();
+		?>
 
 		<div class="entry-content">
 			<?php the_content( __( 'Read More<span></span>', 'readly' ) ); ?>
 		</div><!-- .entry-content -->
-
-		<?php endif; ?>
 	<?php endif; ?>
 
 	<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>

@@ -2,7 +2,6 @@ var read_more_color = '#dcdcdb';
 var hover_speed = 200;
 var body;
 var footer;
-var videos = ['iframe', 'object', 'embed'];
 
 function getHeight(el) {
 	return el.height() + parseInt(el.css('padding-top'))

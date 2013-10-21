@@ -17,8 +17,8 @@
 		<div class="site-info">
 			<div id="site-info-wrapper">
 				<div id="site-info-wrapper2">
-					<?php do_action( 'readly_credits' ); ?>
-					&#169; Copyright 2013 <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>. Powered By <a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'readly' ); ?>" rel="generator"><?php echo __( 'WordPress', 'readly' ); ?></a>.
+					<?php do_action('readly_credits'); ?>
+					&#169; Copyright 2013 <a href="<?php echo esc_url(home_url('/')); ?>"><?php echo esc_attr(get_bloginfo('name', 'display')); ?></a>. Powered By <a href="http://wordpress.org/" title="<?php esc_attr_e('A Semantic Personal Publishing Platform', 'readly'); ?>" rel="generator"><?php echo __('WordPress', 'readly'); ?></a>.
 					<br />
 					Designed & Crafted by <a href="http://wpshower.com/">Wpshower</a>.
 				</div>

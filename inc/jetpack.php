@@ -11,9 +11,10 @@
  * See: http://jetpack.me/support/infinite-scroll/
  */
 function readly_infinite_scroll_setup() {
-	add_theme_support( 'infinite-scroll', array(
+	add_theme_support('infinite-scroll', array(
 		'container' => 'content',
-		'footer'    => 'page',
-	) );
+		'footer' => 'page',
+	));
 }
-add_action( 'after_setup_theme', 'readly_infinite_scroll_setup' );
+
+add_action('after_setup_theme', 'readly_infinite_scroll_setup');

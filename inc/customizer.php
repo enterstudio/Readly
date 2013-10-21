@@ -13,54 +13,54 @@
  *
  * @since Readly 1.2
  */
-function readly_customize_register( $wp_customize ) {
+function readly_customize_register($wp_customize) {
 	// Colors
-	$wp_customize->add_section( 'readly_colors', array(
-		'title' => __( 'Colors', 'readly' ),
+	$wp_customize->add_section('readly_colors', array(
+		'title' => __('Colors', 'readly'),
 		'priority' => 35,
 		'capability' => 'edit_theme_options',
 		'description' => __('Allows you to customize some colors.', 'readly')
-	) );
-	$wp_customize->add_setting( 'readly_background_color', array(
+	));
+	$wp_customize->add_setting('readly_background_color', array(
 		'default' => wpShower::$background,
 		'type' => 'option',
 		'capability' => 'edit_theme_options',
 		'transport' => 'postMessage'
-	) );
-	$wp_customize->add_setting( 'readly_color', array(
+	));
+	$wp_customize->add_setting('readly_color', array(
 		'default' => wpShower::$color,
 		'type' => 'option',
 		'capability' => 'edit_theme_options',
 		'transport' => 'postMessage'
-	) );
-	$wp_customize->add_control( new WP_Customize_Color_Control(
+	));
+	$wp_customize->add_control(new WP_Customize_Color_Control(
 		$wp_customize,
 		'readly_background_color',
 		array(
-			'label' => __( 'Background Color', 'readly' ),
+			'label' => __('Background Color', 'readly'),
 			'section' => 'readly_colors',
 			'settings' => 'readly_background_color',
 			'priority' => 10,
 		)
-	) );
-	$wp_customize->add_control( new WP_Customize_Color_Control(
+	));
+	$wp_customize->add_control(new WP_Customize_Color_Control(
 		$wp_customize,
 		'readly_color',
 		array(
-			'label' => __( 'Color', 'readly' ),
+			'label' => __('Color', 'readly'),
 			'section' => 'readly_colors',
 			'settings' => 'readly_color',
 			'priority' => 10,
 		)
-	) );
+	));
 
 	// Social networks
-	$wp_customize->add_section( 'readly_social', array(
-		'title' => __( 'Social networks', 'readly' ),
+	$wp_customize->add_section('readly_social', array(
+		'title' => __('Social networks', 'readly'),
 		'priority' => 95,
 		'capability' => 'edit_theme_options',
-		'description' => __( 'Allows you to customize social network links.', 'readly' )
-	) );
+		'description' => __('Allows you to customize social network links.', 'readly')
+	));
 	$array = array(
 		'twitter' => 'Twitter',
 		'facebook' => 'Facebook',
@@ -73,53 +73,52 @@ function readly_customize_register( $wp_customize ) {
 		'rss' => 'RSS'
 	);
 	$i = 0;
-	foreach ( $array as $key => $value )
-	{
+	foreach ($array as $key => $value) {
 		$i++;
-		$wp_customize->add_setting( 'readly_social['.$key.']', array(
+		$wp_customize->add_setting('readly_social['.$key.']', array(
 			'default' => '',
 			'type' => 'option',
 			'capability' => 'edit_theme_options',
 			'transport' => 'postMessage'
-		) );
-		$wp_customize->add_control( 'readly_social['.$key.']', array(
-			'label' => __( $value, 'readly' ),
+		));
+		$wp_customize->add_control('readly_social['.$key.']', array(
+			'label' => __($value, 'readly'),
 			'section' => 'readly_social',
 			'type' => 'text',
 			'priority' => $i
-		) );
+		));
 	}
 
 	// Page navigation
-	$wp_customize->add_section( 'page_navigation', array(
-		'title' => __( 'Page Navigation', 'readly' ),
+	$wp_customize->add_section('page_navigation', array(
+		'title' => __('Page Navigation', 'readly'),
 		'priority' => 100,
-	) );
-	$wp_customize->add_setting( 'page_navigation', array(
+	));
+	$wp_customize->add_setting('page_navigation', array(
 		'default' => 'standard',
 		'sanitize_callback' => 'sanitize_key',
-	) );
-	$wp_customize->add_control( 'page_navigation', array(
+	));
+	$wp_customize->add_control('page_navigation', array(
 		'section' => 'page_navigation',
 		'type' => 'select',
 		'choices' => array(
-			'standard' => __( 'Standard', 'readly' ),
-			'ajax-fetch' => __( 'Load More Button', 'readly' ),
-			'infinite-scroll' => __( 'Infinite Scroll', 'readly' ),
+			'standard' => __('Standard', 'readly'),
+			'ajax-fetch' => __('Load More Button', 'readly'),
+			'infinite-scroll' => __('Infinite Scroll', 'readly'),
 		),
-	) );
+	));
 
-	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'readly_background_color' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'readly_color' )->transport = 'postMessage';
+	$wp_customize->get_setting('blogname')->transport = 'postMessage';
+	$wp_customize->get_setting('blogdescription')->transport = 'postMessage';
+	$wp_customize->get_setting('readly_background_color')->transport = 'postMessage';
+	$wp_customize->get_setting('readly_color')->transport = 'postMessage';
 }
-add_action( 'customize_register', 'readly_customize_register' );
 
-function readly_header_output()
-{
-	$background_color = get_option( 'readly_background_color', wpShower::$background );
-	$color = get_option( 'readly_color', wpShower::$color );
+add_action('customize_register', 'readly_customize_register');
+
+function readly_header_output() {
+	$background_color = get_option('readly_background_color', wpShower::$background);
+	$color = get_option('readly_color', wpShower::$color);
 
 	echo '<style type="text/css" id="custom-background-css">
 body, button, input, select, textarea, #page, #masthead, #colophon {
@@ -218,7 +217,7 @@ var hover_color = "'.$color.'";
 </script>';
 }
 
-add_action( 'wp_head' , 'readly_header_output' );
+add_action('wp_head', 'readly_header_output');
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
@@ -226,6 +225,7 @@ add_action( 'wp_head' , 'readly_header_output' );
  * @since Readly 1.2
  */
 function readly_customize_preview_js() {
-	wp_enqueue_script( 'readly_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130304', true );
+	wp_enqueue_script('readly_customizer', get_template_directory_uri().'/js/customizer.js', array('customize-preview'), '20130304', true);
 }
-add_action( 'customize_preview_init', 'readly_customize_preview_js' );
+
+add_action('customize_preview_init', 'readly_customize_preview_js');

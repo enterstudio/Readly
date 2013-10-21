@@ -71,7 +71,7 @@ function readly_content_nav( $nav_id ) {
 										jQuery('#nav-below').remove();
 									}
 									fixLinks();
-									fixVideos();
+									result.find('.entry-video').wpShowerResponsiveVideos();
 									result.find('audio,video').mediaelementplayer();
 								}
 							} );

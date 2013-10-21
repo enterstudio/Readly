@@ -1264,7 +1264,9 @@ input[type="password"].password_protected {
 	display: inline-block;
 	width: 45px;
 	height: 45px;
-	background: url(icons/loadmore.svg) #f4f4f2 0 0 no-repeat;
+	background-image: url(icons/loadmore.svg);
+	background-position: 0 0;
+	background-repeat: no-repeat;
 	z-index: 8;
 }
 .load-more a:hover span.loader {

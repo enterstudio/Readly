@@ -22,13 +22,13 @@ function readly_customize_register( $wp_customize ) {
 		'description' => __('Allows you to customize some colors.', 'readly')
 	) );
 	$wp_customize->add_setting( 'readly_background_color', array(
-		'default' => '#f4f4f2',
+		'default' => wpShower::$background,
 		'type' => 'option',
 		'capability' => 'edit_theme_options',
 		'transport' => 'postMessage'
 	) );
 	$wp_customize->add_setting( 'readly_color', array(
-		'default' => '#1e83cb',
+		'default' => wpShower::$color,
 		'type' => 'option',
 		'capability' => 'edit_theme_options',
 		'transport' => 'postMessage'
@@ -118,8 +118,8 @@ add_action( 'customize_register', 'readly_customize_register' );
 
 function readly_header_output()
 {
-	$background_color = get_option( 'readly_background_color' );
-	$color = get_option( 'readly_color' );
+	$background_color = get_option( 'readly_background_color', wpShower::$background );
+	$color = get_option( 'readly_color', wpShower::$color );
 
 	echo '<style type="text/css" id="custom-background-css">
 body, button, input, select, textarea, #page, #masthead, #colophon {
@@ -170,9 +170,12 @@ a.more-link span {
 #social a:hover {
 	background-color: '.$color.';
 }
+.load-more a span.img {
+	background-color: '.$background_color.';
+}
 a.more-link:hover {
 	background-color: '.$color.';
-	border-bottom-color: #f4f4f2;
+	border-bottom-color: '.$background_color.';
 }
 a.more-link:hover span {
 	border-left-color: '.$color.';

@@ -226,7 +226,7 @@ textarea {
 button,
 input {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
-	*overflow: visible;  /* Corrects inner spacing displayed oddly in IE6/7 */
+	*overflow: visible; /* Corrects inner spacing displayed oddly in IE6/7 */
 }
 button,
 html input[type="button"],
@@ -243,8 +243,8 @@ input[type="radio"] {
 input[type="search"] {
 	-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
 	-webkit-box-sizing: content-box; /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
-	-moz-box-sizing:    content-box;
-	box-sizing:         content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
 }
 input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
 	-webkit-appearance: none;
@@ -791,44 +791,44 @@ object {
 .gallery-columns-2 .gallery-item {
 	max-width: 48%;
 	max-width: -webkit-calc(50% - 4px);
-	max-width:         calc(50% - 4px);
+	max-width: calc(50% - 4px);
 	text-align: center;
 }
 .gallery-columns-3 .gallery-item {
 	max-width: 31%;
 	max-width: -webkit-calc(33.3% - 4px);
-	max-width:         calc(33.3% - 4px);
+	max-width: calc(33.3% - 4px);
 	text-align: center;
 }
 .gallery-columns-4 .gallery-item {
 	max-width: 23%;
 	max-width: -webkit-calc(25% - 4px);
-	max-width:         calc(25% - 4px);
+	max-width: calc(25% - 4px);
 }
 .gallery-columns-5 .gallery-item {
 	max-width: 19%;
 	max-width: -webkit-calc(20% - 4px);
-	max-width:         calc(20% - 4px);
+	max-width: calc(20% - 4px);
 }
 .gallery-columns-6 .gallery-item {
 	max-width: 15%;
 	max-width: -webkit-calc(16.7% - 4px);
-	max-width:         calc(16.7% - 4px);
+	max-width: calc(16.7% - 4px);
 }
 .gallery-columns-7 .gallery-item {
 	max-width: 13%;
 	max-width: -webkit-calc(14.28% - 4px);
-	max-width:         calc(14.28% - 4px);
+	max-width: calc(14.28% - 4px);
 }
 .gallery-columns-8 .gallery-item {
 	max-width: 11%;
 	max-width: -webkit-calc(12.5% - 4px);
-	max-width:         calc(12.5% - 4px);
+	max-width: calc(12.5% - 4px);
 }
 .gallery-columns-9 .gallery-item {
 	max-width: 9%;
 	max-width: -webkit-calc(11.1% - 4px);
-	max-width:         calc(11.1% - 4px);
+	max-width: calc(11.1% - 4px);
 }
 .gallery-columns-1 .gallery-item:nth-of-type(1n),
 .gallery-columns-2 .gallery-item:nth-of-type(2n),
@@ -856,7 +856,7 @@ object {
 	left: 0;
 	text-align: left;
 	-webkit-transition: opacity 400ms ease;
-	transition:         opacity 400ms ease;
+	transition: opacity 400ms ease;
 	width: 100%;
 }
 .gallery-caption:before {
@@ -934,16 +934,16 @@ object {
 .search .format-gallery .gallery-item .gallery-icon {
 	height: 100%;
 	-webkit-transform: translate(50%, 50%);
-	-ms-transform:     translate(50%, 50%);
-	transform:         translate(50%, 50%);
+	-ms-transform: translate(50%, 50%);
+	transform: translate(50%, 50%);
 	width: 100%;
 }
 .blog .format-gallery .gallery-item .gallery-icon img,
 .archive .format-gallery .gallery-item .gallery-icon img,
 .search .format-gallery .gallery-item .gallery-icon img {
 	-webkit-transform: translate(-50%, -50%);
-	-ms-transform:     translate(-50%, -50%);
-	transform:         translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 .blog .format-gallery .gallery br,
 .archive .format-gallery .gallery br,
@@ -958,7 +958,7 @@ object {
 	.search .format-gallery .gallery-item {
 		max-width: none;
 		width: -webkit-calc(50% - 4px);
-		width:         calc(50% - 4px);
+		width: calc(50% - 4px);
 	}
 	.single .gallery-columns-1.gallery-size-medium,
 	.single .gallery-columns-1.gallery-size-thumbnail,
@@ -973,7 +973,7 @@ object {
 	.archive .format-gallery .gallery-item:first-child,
 	.search .format-gallery .gallery-item:first-child {
 		width: -webkit-calc(100% - 4px);
-		width:         calc(100% - 4px);
+		width: calc(100% - 4px);
 	}
 }
 

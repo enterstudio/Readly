@@ -83,7 +83,7 @@ get_header();
 							?></a>
 						</div><!-- .attachment -->
 
-						<?php if (!empty($post->post_excerpt)) : ?>
+						<?php if (!empty($post->post_excerpt)): ?>
 						<div class="entry-caption">
 							<?php the_excerpt(); ?>
 						</div><!-- .entry-caption -->
@@ -96,13 +96,13 @@ get_header();
 				</div><!-- .entry-content -->
 
 				<footer class="entry-meta">
-					<?php if (comments_open() && pings_open()) : // Comments and trackbacks open ?>
+					<?php if (comments_open() && pings_open()): // Comments and trackbacks open ?>
 						<?php printf(__('<a class="comment-link" href="#respond" title="Post a comment">Post a comment</a> or leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', 'readly'), get_trackback_url()); ?>
-					<?php elseif (!comments_open() && pings_open()) : // Only trackbacks open ?>
+					<?php elseif (!comments_open() && pings_open()): // Only trackbacks open ?>
 						<?php printf(__('Comments are closed, but you can leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', 'readly'), get_trackback_url()); ?>
-					<?php elseif (comments_open() && !pings_open()) : // Only comments open ?>
+					<?php elseif (comments_open() && !pings_open()): // Only comments open ?>
 						<?php _e('Trackbacks are closed, but you can <a class="comment-link" href="#respond" title="Post a comment">post a comment</a>.', 'readly'); ?>
-					<?php elseif (!comments_open() && !pings_open()) : // Comments and trackbacks closed ?>
+					<?php elseif (!comments_open() && !pings_open()): // Comments and trackbacks closed ?>
 						<?php _e('Both comments and trackbacks are currently closed.', 'readly'); ?>
 					<?php endif; ?>
 					<?php edit_post_link(__('Edit', 'readly'), ' <span class="edit-link">', '</span>'); ?>

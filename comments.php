@@ -54,7 +54,7 @@
 			?>
 		</ol><!-- .comment-list -->
 
-		<?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : // are there comments to navigate through ?>
+		<?php if (get_comment_pages_count() > 1 && get_option('page_comments')): // are there comments to navigate through ?>
 		<nav id="comment-nav-below" class="navigation-comment" role="navigation">
 			<h1 class="assistive-text"><?php _e('Comment navigation', 'readly'); ?></h1>
 			<div class="previous"><?php previous_comments_link(__('&larr; Older Comments', 'readly')); ?></div>

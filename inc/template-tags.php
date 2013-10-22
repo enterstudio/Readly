@@ -8,7 +8,7 @@
  * @since Readly 1.0
  */
 
-if (!function_exists('readly_content_nav')) :
+if (!function_exists('readly_content_nav')):
 /**
  * Display navigation to next/previous pages when applicable
  *
@@ -37,7 +37,7 @@ function readly_content_nav($nav_id) {
 		<div id="nav-below-separator">
 			<h1 class="assistive-text"><?php _e('Post navigation', 'readly'); ?></h1>
 
-		<?php if (is_single()) : // navigation links for single posts ?>
+		<?php if (is_single()): // navigation links for single posts ?>
 
 			<div class="previous"><?php previous_post_link('%link', '<span class="meta-nav">'._x('Previous Article', 'Previous post link', 'readly').'</span><br />%title'); ?></div>
 			<div class="next"><?php next_post_link('%link', '<span class="meta-nav">'._x('Next Article', 'Next post link', 'readly').'</span><br />%title'); ?></div>
@@ -111,15 +111,15 @@ if (!function_exists('readly_comment')):
  */
 function readly_comment($comment, $args, $depth) {
 	$GLOBALS['comment'] = $comment;
-	switch ($comment->comment_type) :
-		case 'pingback' :
-		case 'trackback' :
+	switch ($comment->comment_type):
+		case 'pingback':
+		case 'trackback':
 	?>
 	<li class="post pingback">
 		<p><?php _e('Pingback:', 'readly'); ?> <?php comment_author_link(); ?><?php edit_comment_link(__('Edit', 'readly'), '<span class="edit-link">', '<span>'); ?></p>
 	<?php
 			break;
-		default :
+		default:
 	?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<article id="comment-<?php comment_ID(); ?>" class="comment">

@@ -19,7 +19,7 @@ if (!isset($content_width))
  */
 require(get_template_directory().'/inc/jetpack.php');
 
-if (!function_exists('readly_setup')) :
+if (!function_exists('readly_setup')):
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *

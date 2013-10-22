@@ -14,7 +14,7 @@ function mobileMenu() {
 	jQuery('#mobile_menu_animation').remove();
 	jQuery('head').append('<style type="text/css" id="mobile_menu_animation">' + "\n"
 		+ "@media only screen and (max-width : 640px) {\n"
-		+ "#site-navigation-wrapper2 > div > ul.menu-visible {max-height:" + menu_height  + "px}\n"
+		+ "#site-navigation-wrapper2 > div > ul.menu-visible {max-height:" + menu_height + "px}\n"
 		+ "}\n"
 		+ "</style>");
 }

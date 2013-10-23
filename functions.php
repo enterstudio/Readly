@@ -97,7 +97,7 @@ function readly_widgets_init() {
 	));
 }
 
-add_action( 'widgets_init', 'readly_widgets_init' );
+add_action('widgets_init', 'readly_widgets_init');
 
 /**
  * Enqueue scripts and styles
@@ -176,7 +176,7 @@ function readly_infinite_scroll_js() {
 				loading: {
 					img: "<?php echo get_stylesheet_directory_uri(); ?>/icons/loadmore.svg",
 					msgText: "",
-					finishedMsg: "<?php _e( 'The End', 'readly' ); ?>"
+					finishedMsg: "<?php _e('The End', 'readly'); ?>"
 				},
 				'nextSelector': '#nav-below .previous a',
 				'navSelector': '#nav-below',

@@ -21,27 +21,11 @@ function readly_customize_register($wp_customize) {
 		'capability' => 'edit_theme_options',
 		'description' => __('Allows you to customize some colors.', 'readly')
 	));
-	$wp_customize->add_setting('readly_background_color', array(
-		'default' => wpShower::$background,
-		'type' => 'option',
-		'capability' => 'edit_theme_options',
-		'transport' => 'postMessage'
-	));
 	$wp_customize->add_setting('readly_color', array(
 		'default' => wpShower::$color,
 		'type' => 'option',
 		'capability' => 'edit_theme_options',
 		'transport' => 'postMessage'
-	));
-	$wp_customize->add_control(new WP_Customize_Color_Control(
-		$wp_customize,
-		'readly_background_color',
-		array(
-			'label' => __('Background Color', 'readly'),
-			'section' => 'readly_colors',
-			'settings' => 'readly_background_color',
-			'priority' => 10,
-		)
 	));
 	$wp_customize->add_control(new WP_Customize_Color_Control(
 		$wp_customize,
@@ -110,24 +94,15 @@ function readly_customize_register($wp_customize) {
 
 	$wp_customize->get_setting('blogname')->transport = 'postMessage';
 	$wp_customize->get_setting('blogdescription')->transport = 'postMessage';
-	$wp_customize->get_setting('readly_background_color')->transport = 'postMessage';
 	$wp_customize->get_setting('readly_color')->transport = 'postMessage';
 }
 
 add_action('customize_register', 'readly_customize_register');
 
 function readly_header_output() {
-	$background_color = get_option('readly_background_color', wpShower::$background);
 	$color = get_option('readly_color', wpShower::$color);
 
-	echo '<style type="text/css" id="custom-background-css">
-body, button, input, select, textarea, #page, #masthead, #colophon {
-	background: '.$background_color.';
-}
-.entry-content a {
-	border-bottom: 1px solid '.$background_color.';
-}
-a {
+	echo 'a {
 	color: '.$color.';
 }
 .entry-content a {
@@ -138,9 +113,6 @@ a {
 }
 .entry-content a:hover {
 	border-bottom-color: '.$color.';
-}
-.entry-content a.image_link:hover {
-	border-bottom-color: '.$background_color.';
 }
 #masthead .site-title a, #site-navigation a, .sub-menu a, #nav-below a, .entry-title a, #image-navigation a {
 	-webkit-transition: color 0.2s linear;
@@ -169,12 +141,8 @@ a.more-link span {
 #social a:hover {
 	background-color: '.$color.';
 }
-.load-more a span.img {
-	background-color: '.$background_color.';
-}
 a.more-link:hover {
 	background-color: '.$color.';
-	border-bottom-color: '.$background_color.';
 }
 a.more-link:hover span {
 	border-left-color: '.$color.';
@@ -190,12 +158,6 @@ a.more-link:hover span {
 	border-bottom-color: '.$color.';
 }
 @media only screen and (min-width : 641px) {
-	.sub-menu {
-		background: '.$background_color.';
-	}
-	.sub-menu:before {
-		border-bottom: 6px solid '.$background_color.';
-	}
 	#site-navigation a:hover, .sub-menu a:hover {
 		color: '.$color.';
 	}
@@ -212,7 +174,6 @@ html {
 }
 </style>
 <script type="text/javascript">
-var background_color = "'.$background_color.'";
 var hover_color = "'.$color.'";
 </script>';
 }

@@ -197,7 +197,6 @@ function readly_infinite_scroll_js() {
 add_action('wp_footer', 'readly_infinite_scroll_js', 100);
 
 class wpShower {
-	public static $background = '#f4f4f2';
 	public static $color = '#1e83cb';
 
 	/**

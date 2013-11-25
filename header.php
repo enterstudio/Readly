@@ -41,7 +41,7 @@
 					<h1 class="menu-toggle"><?php _e('Menu', 'readly'); ?><span>m</span></h1>
 					<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e('Skip to content', 'readly'); ?>"><?php _e('Skip to content', 'readly'); ?></a></div>
 
-					<?php wp_nav_menu(array('theme_location' => 'primary')); ?>
+					<?php wp_nav_menu(array('theme_location' => 'primary', 'fallback_cb' => false)); ?>
 				</div>
 			</div>
 		</nav><!-- .site-navigation -->

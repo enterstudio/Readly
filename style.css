@@ -46,8 +46,8 @@ html {
 	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
 	-ms-text-size-adjust: 100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
 }
-body {
-	background: #fff;
+body, button, input, select, textarea, #page, #masthead, #colophon {
+	background: #f4f4f2;
 }
 article,
 aside,
@@ -347,6 +347,9 @@ a.more-link span {
 	border-left-color: #dcdcdb;
 	border-width: 20px 0px 20px 12px;
 }
+a.more-link:hover {
+	border-bottom-color: #f4f4f2;
+}
 #masthead hgroup h1 a {
 	font-size: 37px;
 	font-size: 3.7rem;
@@ -541,6 +544,12 @@ footer.entry-meta {
 .entry-content {
 	word-wrap: break-word;
 }
+.entry-content a {
+	border-bottom: 1px solid #f4f4f2;
+}
+entry-content a.image_link:hover {
+	border-bottom-color: #f4f4f2;
+}
 .entry-content h1 {
 	font-size: 36px;
 	font-size: 3.6rem;
@@ -571,45 +580,22 @@ footer.entry-meta {
 	font-size: 1.6rem;
 	margin-bottom: 1.5em;
 }
-.format-quote blockquote {
-	border-left: none;
+.format-quote .entry-content {
 	position: relative;
-	padding-left: 50px;
-	font-style: normal;
 	font-size: 26px;
 	font-size: 2.6rem;
 }
-.format-quote blockquote:before {
+.format-quote .entry-content:before {
 	content: '“';
 	position: absolute;
-	top: -0.1em;
-	left: 0;
+	top: -6px;
+	left: -57px;
 	color: #dcdcdc;
 	font-family: Georgia, Serif;
 	font-size: 104px;
 	font-size: 10.4rem;
 	line-height: 1em;
 	font-style: normal;
-}
-.format-quote .post-format-content p:last-child {
-	margin-bottom: 0;
-}
-.format-quote cite, .format-quote figcaption {
-	display: block;
-	font-style: italic;
-	padding: 0 0 0 50px;
-}
-.format-quote cite:before, .format-quote figcaption:before {
-	content: '_';
-	display: block;
-	color: #dcdcdc;
-	font-size: 36px;
-	font-size: 3.6rem;
-	margin: -0.2em 0 0 0.1em;
-	padding-bottom: 0.5em;
-}
-.format-quote .entry-meta {
-	padding-left: 50px;
 }
 .format-quote footer.entry-meta a {
 	border-bottom: none;
@@ -1265,6 +1251,7 @@ input[type="password"].password_protected {
 	display: inline-block;
 	width: 45px;
 	height: 45px;
+	background-color: #f4f4f2;
 	background-image: url(icons/loadmore.svg);
 	background-position: 0 0;
 	background-repeat: no-repeat;
@@ -1438,6 +1425,12 @@ input[type="password"].password_protected {
 	}
 	#site-navigation-wrapper2 > div > ul > li:hover .sub-menu {
 		display: block;
+	}
+	.sub-menu {
+		background: #f4f4f2;
+	}
+	.sub-menu:before {
+		border-bottom: 6px solid #f4f4f2;
 	}
 	.sub-menu a {
 		white-space: nowrap;
@@ -1672,7 +1665,7 @@ input[type="password"].password_protected {
 	.article-separator {
 		margin: 2em 0;
 	}
-	.format-quote blockquote {
+	.format-quote .entry-content {
 		font-size: 21px;
 		font-size: 2.1rem;
 	}

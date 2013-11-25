@@ -102,7 +102,8 @@ add_action('customize_register', 'readly_customize_register');
 function readly_header_output() {
 	$color = get_option('readly_color', wpShower::$color);
 
-	echo 'a {
+	echo '<style type="text/css" id="custom-background-css">
+a {
 	color: '.$color.';
 }
 .entry-content a {

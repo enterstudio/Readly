@@ -549,7 +549,7 @@ footer.entry-meta {
 .entry-content a {
 	border-bottom: 1px solid #f4f4f2;
 }
-entry-content a.image_link:hover {
+.entry-content a.image_link:hover {
 	border-bottom-color: #f4f4f2;
 }
 .entry-content h1 {

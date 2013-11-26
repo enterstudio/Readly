@@ -391,6 +391,8 @@ a.more-link:hover {
 	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
+	top: 0;
+	right: 0;
 }
 
 /* Clearing */
@@ -633,7 +635,8 @@ entry-content a.image_link:hover {
 .site-header img,
 .entry-content img,
 .comment-content img,
-.widget img {
+.widget img,
+.entry-image img {
 	max-width: 100%; /* Fluid images for posts, comments, and widgets */
 }
 .site-header img,
@@ -698,7 +701,9 @@ object {
 	height: 30px !important;
 	max-width: 100% !important;
 }
-.format-image .post-format-content, .format-video > .entry-media, .readly_big {
+.format-image .entry-media,
+.format-video > .entry-media,
+.readly_big {
 	text-align: center;
 	margin-left: -160px;
 	margin-right: -160px;
@@ -1480,7 +1485,9 @@ input[type="password"].password_protected {
 	#main {
 		padding: 0 40px;
 	}
-	.format-image .post-format-content, .format-video > .entry-media, .readly_big {
+	.format-image .entry-media,
+	.format-video > .entry-media,
+	.readly_big {
 		margin-left: -40px;
 		margin-right: -40px;
 		max-width: -moz-calc(100% + 80px);
@@ -1649,7 +1656,9 @@ input[type="password"].password_protected {
 	#content > article, #nav-below, #comments, #secondary {
 		padding: 20px;
 	}
-	.format-image .post-format-content, .format-video > .entry-media, .readly_big {
+	.format-image .entry-media,
+	.format-video > .entry-media,
+	.readly_big {
 		margin-left: -20px;
 		margin-right: -20px;
 		max-width: -moz-calc(100% + 40px);

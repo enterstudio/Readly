@@ -19,6 +19,7 @@
 	$post_format = get_post_format();
 	if ('audio' == $post_format) readly_formatted_audio();
 	elseif ('video' == $post_format) readly_formatted_video();
+	elseif ('image' == $post_format) readly_formatted_image();
 	?>
 
 	<div class="entry-content">

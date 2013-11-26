@@ -63,6 +63,8 @@ function readly_setup() {
 	 */
 	add_theme_support('post-thumbnails');
 
+	add_image_size('readly-full', 920);
+
 	/**
 	 * This theme uses wp_nav_menu() in one location.
 	 */
@@ -314,6 +316,23 @@ function readly_formatted_video() {
 		<div class="video-content">
 			<?php echo wpShower::filteredContent($meta); ?>
 		</div>
+	</div><!-- .entry-media -->
+
+	<?php
+}
+
+function readly_formatted_image() {
+	if (post_password_required()) return;
+
+	$thumbnail_id = get_post_thumbnail_id(get_the_ID());
+	if ($thumbnail_id == '') return;
+
+	$src = wp_get_attachment_image_src($thumbnail_id, 'readly-full');
+	if (!isset($src[0])) return;
+	?>
+
+	<div class="entry-media entry-image">
+		<a href="<?php the_permalink(); ?>"><img src="<?php echo $src[0]; ?>" alt="<?php the_title_attribute(); ?>" /></a>
 	</div><!-- .entry-media -->
 
 	<?php

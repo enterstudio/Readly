@@ -347,7 +347,7 @@ a.more-link span {
 	border-left-color: #dcdcdb;
 	border-width: 20px 0px 20px 12px;
 }
-a.more-link:hover {
+.entry-content a.more-link:hover {
 	border-bottom-color: #f4f4f2;
 }
 #masthead hgroup h1 a {

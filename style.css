@@ -702,6 +702,7 @@ object {
 	max-width: 100% !important;
 }
 .format-image .entry-media,
+.entry-audio-embed,
 .format-video > .entry-media,
 .readly_big {
 	text-align: center;
@@ -1486,6 +1487,7 @@ input[type="password"].password_protected {
 		padding: 0 40px;
 	}
 	.format-image .entry-media,
+	.entry-audio-embed,
 	.format-video > .entry-media,
 	.readly_big {
 		margin-left: -40px;
@@ -1657,6 +1659,7 @@ input[type="password"].password_protected {
 		padding: 20px;
 	}
 	.format-image .entry-media,
+	.entry-audio-embed,
 	.format-video > .entry-media,
 	.readly_big {
 		margin-left: -20px;

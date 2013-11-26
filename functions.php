@@ -297,10 +297,12 @@ function readly_formatted_audio() {
 	if (post_password_required()) return;
 
 	$meta = get_post_meta(get_the_ID(), 'readly_big_audio', true);
+	$meta = wpShower::filteredContent($meta);
+	$local = strpos($meta, 'wp-audio-shortcode') !== false ? true : false;
 	?>
 
-	<div class="entry-media entry-audio">
-		<?php echo wpShower::filteredContent($meta); ?>
+	<div class="entry-media entry-audio<?php if (!$local) echo ' entry-audio-embed'; ?>">
+		<?php echo $meta; ?>
 	</div><!-- .entry-media -->
 
 	<?php

@@ -320,17 +320,19 @@ footer.entry-meta .edit-link:before, .comment-meta .edit-link:before {
 	color: #adadae;
 	border-bottom: 1px solid #adadae;
 }
-a.more-link {
-	display: inline-block;
+.entry-content a.more-link {
+	display: block;
+	width: 105px;
 	font-size: 21px;
 	font-size: 2.1rem;
 	font-family: Times, "Times New Roman", serif;
 	line-height: 40px;
-	padding: 0 8px 0 11px;
+	padding-left: 11px;
 	position: relative;
 	background: #dcdcdb;
 	color: #fff;
 	text-shadow: none;
+	border-bottom: none;
 	border-top-left-radius: 2px;
 	border-bottom-left-radius: 2px;
 	margin-top: 0.5em;
@@ -346,9 +348,6 @@ a.more-link span {
 	border: solid transparent;
 	border-left-color: #dcdcdb;
 	border-width: 20px 0px 20px 12px;
-}
-.entry-content a.more-link:hover {
-	border-bottom-color: #f4f4f2;
 }
 #masthead hgroup h1 a {
 	font-size: 37px;
@@ -547,7 +546,7 @@ footer.entry-meta {
 	word-wrap: break-word;
 }
 .entry-content a {
-	border-bottom: 1px solid #f4f4f2;
+	border-bottom: 1px solid transparent;
 }
 .entry-content a.image_link:hover {
 	border-bottom-color: #f4f4f2;

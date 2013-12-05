@@ -38,10 +38,17 @@
 		if ('audio' == $post_format) readly_formatted_audio();
 		elseif ('video' == $post_format) readly_formatted_video();
 		elseif ('image' == $post_format) readly_formatted_image();
+		elseif ('gallery' == $post_format) {
+			$result = wpShower::getContentAndAttachments();
+			echo readly_formatted_gallery($result['attachments'], 'readly_big');
+		}
 		?>
 
 		<div class="entry-content">
-			<?php the_content(__('Read More<span></span>', 'readly')); ?>
+			<?php
+			if ('gallery' == $post_format) echo $result['content'];
+			else the_content();
+			?>
 		</div><!-- .entry-content -->
 	<?php endif; ?>
 

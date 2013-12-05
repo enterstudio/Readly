@@ -63,6 +63,7 @@ function readly_setup() {
 	 */
 	add_theme_support('post-thumbnails');
 
+	add_image_size('readly-gallery', 436, 436, true);
 	add_image_size('readly-full', 920);
 
 	/**
@@ -200,6 +201,26 @@ add_action('wp_footer', 'readly_infinite_scroll_js', 100);
 
 class wpShower {
 	public static $color = '#1e83cb';
+	private static $galleries = array();
+
+	public static function catchGallery($attr) {
+		if (!isset($attr['ids']) || trim($attr['ids']) == '') return '';
+
+		$attachments = explode(',', $attr['ids']);
+
+		if (empty(self::$galleries) && get_post_format(get_the_ID()) == 'gallery') {
+			self::$galleries[] = $attachments;
+			return '';
+		}
+
+		return readly_formatted_gallery($attachments);
+	}
+
+	private static function getGalleries() {
+		$results = self::$galleries;
+		self::$galleries = array();
+		return $results;
+	}
 
 	/**
 	 * Function to get the content earlier than it needs to be printed; shortcodes are catched this way
@@ -212,7 +233,26 @@ class wpShower {
 		$content = str_replace('<p></p>', '', $content); // TODO: fix it (youtube embed adds empty paragraphs?)
 		return str_replace(']]>', ']]&gt;', $content);
 	}
+
+	public static function getContentAndAttachments() {
+		$content = self::filteredContent();
+
+		$galleries = self::getGalleries();
+		$attachments = array();
+		foreach ($galleries as $gallery) {
+			foreach ($gallery as $attachment_id) {
+				$attachments[] = $attachment_id;
+			}
+		}
+		return array('content' => $content, 'attachments' => $attachments);
+	}
 }
+
+/**
+ * Removes galleries from post content
+ */
+remove_shortcode('gallery');
+add_shortcode('gallery', array('wpShower', 'catchGallery'));
 
 /* Audio & video boxes for posts */
 function readly_big_video_box($post) {
@@ -338,4 +378,18 @@ function readly_formatted_image() {
 	</div><!-- .entry-media -->
 
 	<?php
+}
+
+function readly_formatted_gallery($attachments, $class = '') {
+	$html = '<div class="template-gallery'.($class != '' ? ' '.$class : '').'">
+	<div class="gallery-wrapper">';
+	foreach ($attachments as $attachment):
+		$image = get_post($attachment);
+		$src = wp_get_attachment_image_src($attachment, 'outspoken-full');
+		$thumbnail_link = wp_get_attachment_image_src($attachment, 'readly-gallery');
+		$html .= '<a class="gallerybox" href="'.esc_url($src[0]).'" title="'.esc_attr($image->post_excerpt).'"><img src="'.esc_url($thumbnail_link[0]).'" alt="" /></a>';
+	endforeach;
+	$html .= '	</div>
+</div>';
+	return $html;
 }

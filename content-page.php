@@ -13,7 +13,7 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php the_content(); ?>
+		<?php the_content(__('Read More<span></span>', 'readly')); ?>
 		<?php wp_link_pages(array('before' => '<div class="page-links">'.__('Pages:', 'readly'), 'after' => '</div>')); ?>
 	</div><!-- .entry-content -->
 	<?php edit_post_link(__('Edit', 'readly'), '<footer class="entry-meta"><span class="edit-link">', '</span></footer>'); ?>

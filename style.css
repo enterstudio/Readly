@@ -761,6 +761,10 @@ object {
 }
 
 /* Galleries */
+.template-gallery {
+	margin-bottom: 24px;
+}
+
 .template-gallery a {
 	float: left;
 	width: 25%;

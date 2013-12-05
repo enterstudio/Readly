@@ -47,7 +47,7 @@
 		<div class="entry-content">
 			<?php
 			if ('gallery' == $post_format) echo $result['content'];
-			else the_content();
+			else the_content(__('Read More<span></span>', 'readly'));
 			?>
 		</div><!-- .entry-content -->
 	<?php endif; ?>

@@ -294,6 +294,14 @@ a {
 .entry-meta a, #comments a {
 	color: #adadae;
 }
+#comments cite a {
+	color: #0a0a0a;
+	border-bottom: 1px solid transparent;
+}
+#comments cite a:hover {
+	color: #0a0a0a;
+	border-bottom: 1px solid;
+}
 footer.entry-meta a {
 	border-bottom: 1px solid #adadae;
 }
@@ -335,7 +343,7 @@ footer.entry-meta .edit-link:before, .comment-meta .edit-link:before {
 	border-bottom: none;
 	border-top-left-radius: 2px;
 	border-bottom-left-radius: 2px;
-	margin-top: 0.5em;
+	margin-top: 45px;
 }
 a.more-link span {
 	position: absolute;

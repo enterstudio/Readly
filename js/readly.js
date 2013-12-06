@@ -49,10 +49,18 @@ jQuery(function() {
 
 	// fancybox for galleries
 	jQuery('.fancybox').fancybox({
+		padding: 50,
+		openEffect: 'none',
+		closeEffect: 'none',
+		nextEffect: 'none',
+		prevEffect: 'none',
 		tpl: {
 			next: '<a title="Next" class="fancybox-nav fancybox-next" href="javascript:;">Next</a>',
 			prev: '<a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;">Previous</a>'
 		}
+	});
+	jQuery('body').on('click', '.fancybox-image', function() {
+		jQuery.fancybox.next();
 	});
 
 	// comment html fix for submit

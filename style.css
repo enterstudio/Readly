@@ -828,6 +828,14 @@ object {
 	box-shadow: none;
 }
 
+.fancybox-image {
+	cursor: pointer;
+}
+
+.fancybox-title-float-wrap {
+	bottom: 40px;
+}
+
 .fancybox-title-float-wrap .child {
 	padding: 0;
 	background: transparent;

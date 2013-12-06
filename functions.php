@@ -106,6 +106,7 @@ add_action('widgets_init', 'readly_widgets_init');
  * Enqueue scripts and styles
  */
 function readly_scripts() {
+	wp_enqueue_style('fancybox-style', get_template_directory_uri().'/fancybox/jquery.fancybox.css?v=2.1.5');
 	wp_enqueue_style('style', get_stylesheet_uri());
 
 	wp_enqueue_script('navigation', get_template_directory_uri().'/js/navigation.js', array(), '20120206', true);
@@ -129,6 +130,9 @@ function readly_scripts() {
 	wp_enqueue_script('jquery-ui', get_template_directory_uri().'/js/jquery-ui-1.10.2.custom.min.js', array(), '20130317');
 
 	wp_enqueue_script('wpshower-responsive-videos', get_template_directory_uri().'/js/wpshower-responsive-videos.js', array('jquery'), '2013-08-15', true);
+
+	wp_enqueue_script('jquery-mousewheel', get_template_directory_uri().'/js/jquery.mousewheel.js', array('jquery'), '3.1.6', true);
+	wp_enqueue_script('fancybox', get_template_directory_uri().'/fancybox/jquery.fancybox.pack.js', array('jquery'), '2.1.5', true);
 
 	wp_enqueue_script('readly', get_template_directory_uri().'/js/readly.js', array(), '20130408');
 
@@ -387,7 +391,7 @@ function readly_formatted_gallery($attachments, $class = '') {
 		$image = get_post($attachment);
 		$src = wp_get_attachment_image_src($attachment, 'outspoken-full');
 		$thumbnail_link = wp_get_attachment_image_src($attachment, 'readly-gallery');
-		$html .= '<a class="gallerybox" href="'.esc_url($src[0]).'" title="'.esc_attr($image->post_excerpt).'"><img src="'.esc_url($thumbnail_link[0]).'" alt="" /></a>';
+		$html .= '<a class="fancybox" rel="group" href="'.esc_url($src[0]).'" title="'.esc_attr($image->post_excerpt).'"><img src="'.esc_url($thumbnail_link[0]).'" alt="" /></a>';
 	endforeach;
 	$html .= '	</div>
 </div>';

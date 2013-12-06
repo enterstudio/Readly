@@ -813,6 +813,91 @@ object {
 	}
 }
 
+/* fancybox */
+.fancybox-overlay {
+	background: #f4f4f2;
+}
+
+.fancybox-skin {
+	background: #f4f4f2;
+}
+
+.fancybox-opened .fancybox-skin {
+	padding: 10px 50px !important;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.fancybox-title-float-wrap .child {
+	padding: 0;
+	background: transparent;
+	text-shadow: none;
+	color: #adadad;
+	font-family: "Palatino Linotype", Palatino, "Book Antiqua", Baskerville, Georgia, serif;
+	font-weight: normal;
+	font-size: 20px;
+}
+
+.fancybox-close {
+	position: fixed;
+	top: 35px;
+	right: 35px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	background-image: none;
+}
+
+.fancybox-close:after {
+	content: '✕';
+	color: #adadad;
+	font-size: 26px;
+	text-align: center;
+}
+
+.fancybox-nav {
+	position: fixed;
+	top: 50%;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 50px;
+	text-align: center;
+	font-size: 19px;
+	color: #adadad;
+}
+
+.fancybox-prev {
+	left: 20px;
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+
+	-webkit-transform-origin: 0% 0%;
+	-moz-transform-origin: 0% 0%;
+	-ms-transform-origin: 0% 0%;
+	-o-transform-origin: 0% 0%;
+	transform-origin: 0% 0%;
+}
+
+.fancybox-next {
+	right: 35px;
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+
+	-webkit-transform-origin: 100% 0%;
+	-moz-transform-origin: 100% 0%;
+	-ms-transform-origin: 100% 0%;
+	-o-transform-origin: 100% 0%;
+	transform-origin: 100% 0%;
+}
+
 /* =Navigation
 ----------------------------------------------- */
 

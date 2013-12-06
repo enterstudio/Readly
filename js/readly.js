@@ -47,6 +47,14 @@ jQuery(function() {
 		body.css('margin-bottom', getHeight(footer));
 	});
 
+	// fancybox for galleries
+	jQuery('.fancybox').fancybox({
+		tpl: {
+			next: '<a title="Next" class="fancybox-nav fancybox-next" href="javascript:;">Next</a>',
+			prev: '<a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;">Previous</a>'
+		}
+	});
+
 	// comment html fix for submit
 	jQuery('.form-submit #submit').after('<span id="submit_after"></span>');
 	jQuery('.form-submit #submit').hover(function() {

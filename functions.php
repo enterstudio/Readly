@@ -389,7 +389,7 @@ function readly_formatted_gallery($attachments, $class = '') {
 	<div class="gallery-wrapper">';
 	foreach ($attachments as $attachment):
 		$image = get_post($attachment);
-		$src = wp_get_attachment_image_src($attachment, 'outspoken-full');
+		$src = wp_get_attachment_image_src($attachment, 'readly-full');
 		$thumbnail_link = wp_get_attachment_image_src($attachment, 'readly-gallery');
 		$html .= '<a class="fancybox" rel="group" href="'.esc_url($src[0]).'" title="'.esc_attr($image->post_excerpt).'"><img src="'.esc_url($thumbnail_link[0]).'" alt="" /></a>';
 	endforeach;

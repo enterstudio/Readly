@@ -823,7 +823,6 @@ object {
 }
 
 .fancybox-opened .fancybox-skin {
-	padding: 10px 50px !important;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;

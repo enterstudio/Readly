@@ -818,6 +818,10 @@ object {
 	background: #f4f4f2;
 }
 
+.fancybox-lock .fancybox-overlay {
+	overflow-y: hidden;
+}
+
 .fancybox-skin {
 	background: #f4f4f2;
 }
@@ -848,10 +852,12 @@ object {
 
 .fancybox-close {
 	position: fixed;
-	top: 35px;
-	right: 35px;
+	top: 30px;
+	right: 20px;
 	width: 30px;
 	height: 30px;
+	text-align: center;
+	font-size: 20px;
 	line-height: 30px;
 	background-image: none;
 }
@@ -891,7 +897,7 @@ object {
 }
 
 .fancybox-next {
-	right: 35px;
+	right: 20px;
 	-webkit-transform: rotate(90deg);
 	-moz-transform: rotate(90deg);
 	-ms-transform: rotate(90deg);
@@ -1394,6 +1400,7 @@ input[type="password"].password_protected {
 @media only screen and (max-width : 999px) {
 	#masthead {
 		display: block;
+		padding-bottom: 20px;
 	}
 	#header-wrapper {
 		display: table;
@@ -1421,6 +1428,17 @@ input[type="password"].password_protected {
 	}
 	#main {
 		padding: 0 40px;
+	}
+	#page {
+		padding-bottom: 35px;
+	}
+	#secondary {
+		padding: 10px 20px;
+		margin-top: 2em;
+	}
+	#nav-below {
+		padding: 10px 20px;
+		margin-bottom: 15px;
 	}
 	.format-image .entry-media,
 	.entry-audio-embed,
@@ -1591,7 +1609,7 @@ input[type="password"].password_protected {
 	#site-navigation-wrapper2 > div > ul > li > .sub-menu {
 		display: block;
 	}
-	#content > article, #nav-below, #comments, #secondary {
+	#content > article, #nav-below, #comments {
 		padding: 20px;
 	}
 	.format-image .entry-media,
@@ -1611,7 +1629,7 @@ input[type="password"].password_protected {
 		top: 0.45em;
 	}
 	.article-separator {
-		margin: 2em 0;
+		margin: 0;
 	}
 	.format-quote .entry-content {
 		font-size: 21px;

@@ -24,33 +24,37 @@
 				</div>
 			</div>
 		</div><!-- .site-info -->
+<?php
+$options = get_option('readly_social');
+$social = array();
+foreach ($options as $key => $value) {
+	if ($options[$key] != '') {
+		$social[$key] = $value;
+	}
+}
+if (!empty($social)):
+	$array = array(
+		'twitter' => 'w',
+		'facebook' => 'f',
+		'instagram' => 'h',
+		'pinterest' => 'p',
+		'dribbble' => 'd',
+		'google' => 'g',
+		'vimeo' => 'v',
+		'flickr' => '8',
+		'rss' => 'r'
+	);
+?>
 		<div id="social">
 			<div id="social_wrapper">
 				<div id="social_wrapper2">
-<?php
-$options = get_option('readly_social');
-$array = array(
-	'twitter' => 'w',
-	'facebook' => 'f',
-	'instagram' => 'h',
-	'pinterest' => 'p',
-	'dribbble' => 'd',
-	'google' => 'g',
-	'vimeo' => 'v',
-	'flickr' => '8',
-	'rss' => 'r'
-);
-foreach ($array as $key => $value):
-	if ($options[$key] != ''):
-?>
-					<a href="<?php echo $options[$key]; ?>"><?php echo $value; ?></a>
-<?php
-	endif;
-endforeach;
-?>
+	<?php foreach ($social as $key => $value): ?>
+					<a href="<?php echo $value; ?>"><?php echo $array[$key]; ?></a>
+	<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
+<?php endif; ?>
 	</div>
 </footer><!-- #colophon -->
 

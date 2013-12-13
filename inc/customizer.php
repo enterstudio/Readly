@@ -165,9 +165,9 @@ a.more-link:hover span {
 }
 html {
 	position: relative;'.(is_admin_bar_showing() ? '
-	min-height: -moz-calc(100% - 28px);
-	min-height: -webkit-calc(100% - 28px);
-	min-height: calc(100% - 28px);' : '
+	min-height: -moz-calc(100% - 32px);
+	min-height: -webkit-calc(100% - 32px);
+	min-height: calc(100% - 32px);' : '
 	min-height: 100%;').'
 }
 .hentry .mejs-controls .mejs-time-rail .mejs-time-current {

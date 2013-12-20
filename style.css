@@ -331,7 +331,7 @@ footer.entry-meta .edit-link:before, .comment-meta .edit-link:before {
 	display: block;
 	width: 105px;
 	font-size: 18px;
-	font-size: 2.1rem;
+	font-size: 1.8rem;
 	font-family: Times, "Times New Roman", serif;
 	line-height: 40px;
 	padding-left: 11px;
@@ -351,7 +351,7 @@ a.more-link span {
 	height: 0;
 	width: 0;
 	font-size: 18px;
-	font-size: 2.1rem;
+	font-size: 1.8rem;
 	border: solid transparent;
 	border-left-color: #dcdcdb;
 	border-width: 20px 0px 20px 12px;
@@ -575,7 +575,7 @@ footer.entry-meta {
 }
 .entry-content h4 {
 	font-size: 18px;
-	font-size: 2.1rem;
+	font-size: 1.8rem;
 	margin-bottom: 1.5em;
 }
 .entry-content h5 {
@@ -1080,7 +1080,7 @@ input[type="password"].password_protected {
 #submit {
 	float: left;
 	font-size: 18px;
-	font-size: 2.1rem;
+	font-size: 1.8rem;
 	font-family: Times, "Times New Roman", serif;
 	height: 40px;
 	line-height: 40px;
@@ -1554,7 +1554,7 @@ input[type="password"].password_protected {
 		color: #fff;
 		font-style: italic;
 		font-size: 18px;
-		font-size: 2.1rem;
+		font-size: 1.8rem;
 		line-height: 2.25em;
 		text-shadow: none;
 	}
@@ -1594,7 +1594,7 @@ input[type="password"].password_protected {
 		border-bottom: 1px solid #383837;
 		font-style: italic;
 		font-size: 18px;
-		font-size: 2.1rem;
+		font-size: 1.8rem;
 		line-height: 2.25em;
 	}
 	#site-navigation-wrapper2 > div > ul > li.submenu-off > a:after {
@@ -1633,7 +1633,7 @@ input[type="password"].password_protected {
 	}
 	.format-quote .entry-content {
 		font-size: 18px;
-		font-size: 2.1rem;
+		font-size: 1.8rem;
 	}
 	.format-link .link_post_p a {
 		font-size: 28px;

@@ -99,12 +99,11 @@ button,
 input,
 select,
 textarea {
-	color: #0a0a0a;
-	font-family: "Palatino Linotype", Palatino, "Book Antiqua", Baskerville, Georgia, serif;
-	font-size: 21px;
-	font-size: 2.1rem;
-	line-height: 1.67em;
-	text-shadow: 0px 1px 0px rgba(255,255,255,0.92);
+	color: #333;
+	font-family: 'Libre Baskerville', 'Book Antiqua', Baskerville, Georgia, serif;
+	font-size: 18px;
+	font-size: 1.8rem;
+	line-height: 1.69em;
 }
 
 /* Headings */
@@ -149,8 +148,8 @@ dfn, cite, em, i {
 	font-style: italic;
 }
 blockquote {
-	padding-left: 1.5em;
-	border-left: 7px solid #0a0a0a;
+	padding-left: 1.2em;
+	border-left: 5px solid #dcdcdc;
 	font-style: italic;
 }
 address {
@@ -289,17 +288,17 @@ a {
 	text-decoration: none;
 }
 #masthead a, .entry-title a {
-	color: #0a0a0a;
+	color: #333;
 }
 .entry-meta a, #comments a {
 	color: #adadae;
 }
 #comments cite a {
-	color: #0a0a0a;
+	color: #333;
 	border-bottom: 1px solid transparent;
 }
 #comments cite a:hover {
-	color: #0a0a0a;
+	color: #333;
 	border-bottom: 1px solid;
 }
 footer.entry-meta a {
@@ -331,7 +330,7 @@ footer.entry-meta .edit-link:before, .comment-meta .edit-link:before {
 .entry-content a.more-link {
 	display: block;
 	width: 105px;
-	font-size: 21px;
+	font-size: 18px;
 	font-size: 2.1rem;
 	font-family: Times, "Times New Roman", serif;
 	line-height: 40px;
@@ -351,7 +350,7 @@ a.more-link span {
 	top: 0;
 	height: 0;
 	width: 0;
-	font-size: 21px;
+	font-size: 18px;
 	font-size: 2.1rem;
 	border: solid transparent;
 	border-left-color: #dcdcdb;
@@ -364,13 +363,13 @@ a.more-link span {
 }
 #social a {
 	display: inline-block;
-	width: 25px;
-	height: 25px;
+	width: 30px;
+	height: 30px;
 	text-align: center;
 	color: #fff;
 	font-family: readly;
-	font-size: 15px;
-	line-height: 27px;
+	font-size: 18px;
+	line-height: 31px;
 	background: #dedede;
 	border-radius: 2px;
 	text-shadow: none;
@@ -523,14 +522,14 @@ footer.entry-meta {
 	margin-top: 1.75em;
 }
 .entry-header {
-	margin-bottom: 1.5em;
+	margin-bottom: 1.2em;
 	word-wrap: break-word;
 }
 .format-link .entry-header {
 	margin-bottom: 0;
 }
 .entry-header .entry-meta {
-	margin-bottom: 1em;
+	margin-bottom: 0.6em;
 }
 .page-header {
 	padding: 0 2em 2em 2em;
@@ -538,7 +537,7 @@ footer.entry-meta {
 .entry-title, .page-title {
 	font-size: 36px;
 	font-size: 3.6rem;
-	line-height: 1.22em;
+	line-height: 1.28em;
 }
 .page-title {
 	margin-bottom: 1em;
@@ -575,7 +574,7 @@ footer.entry-meta {
 	margin-bottom: 1.5em;
 }
 .entry-content h4 {
-	font-size: 21px;
+	font-size: 18px;
 	font-size: 2.1rem;
 	margin-bottom: 1.5em;
 }
@@ -593,6 +592,7 @@ footer.entry-meta {
 	position: relative;
 	font-size: 26px;
 	font-size: 2.6rem;
+	line-height: 1.5em;
 }
 .format-quote .entry-content:before {
 	content: '“';
@@ -624,7 +624,7 @@ footer.entry-meta {
 	font-size: 3.6rem;
 	line-height: 1.22em;
 	border-bottom: 1px solid #adadae;
-	color: #0a0a0a;
+	color: #333;
 }
 
 /* =Asides
@@ -737,7 +737,7 @@ object {
 /* Mediaelements */
 .hentry .mejs-mediaelement,
 .hentry .mejs-container .mejs-controls {
-	background: #0a0a0a;
+	background: #333;
 }
 
 .hentry .mejs-controls .mejs-time-rail .mejs-time-loaded,
@@ -959,7 +959,7 @@ object {
 .previous a, .next a {
 	display: inline-block;
 	position: relative;
-	color: #0a0a0a;
+	color: #333;
 }
 .previous .meta-nav, .next .meta-nav {
 	color: #adadae;
@@ -1079,7 +1079,7 @@ input[type="password"].password_protected {
 }
 #submit {
 	float: left;
-	font-size: 21px;
+	font-size: 18px;
 	font-size: 2.1rem;
 	font-family: Times, "Times New Roman", serif;
 	height: 40px;
@@ -1189,7 +1189,7 @@ input[type="password"].password_protected {
 	display: inline-block;
 	margin-top: 40px;
 	padding-top: 50px;
-	color: #0a0a0a;
+	color: #333;
 }
 .load-more a span.img {
 	position: absolute;
@@ -1382,7 +1382,7 @@ input[type="password"].password_protected {
 	}
 	.sub-menu a {
 		white-space: nowrap;
-		color: #0a0a0a;
+		color: #333;
 	}
 	.sub-menu li {
 		display: block;
@@ -1549,11 +1549,11 @@ input[type="password"].password_protected {
 	}
 	.menu-toggle {
 		display: block;
-		background: #0a0a0a;
+		background: #333;
 		padding: 0 0 0 20px;
 		color: #fff;
 		font-style: italic;
-		font-size: 21px;
+		font-size: 18px;
 		font-size: 2.1rem;
 		line-height: 2.25em;
 		text-shadow: none;
@@ -1585,7 +1585,7 @@ input[type="password"].password_protected {
 		position: static;
 		padding: 0;
 		margin: 0;
-		background: #0a0a0a;
+		background: #333;
 	}
 	#site-navigation-wrapper2 > div > ul > li a {
 		display: block;
@@ -1593,7 +1593,7 @@ input[type="password"].password_protected {
 		color: #fff;
 		border-bottom: 1px solid #383837;
 		font-style: italic;
-		font-size: 21px;
+		font-size: 18px;
 		font-size: 2.1rem;
 		line-height: 2.25em;
 	}
@@ -1632,7 +1632,7 @@ input[type="password"].password_protected {
 		margin: 0;
 	}
 	.format-quote .entry-content {
-		font-size: 21px;
+		font-size: 18px;
 		font-size: 2.1rem;
 	}
 	.format-link .link_post_p a {

@@ -712,7 +712,6 @@ object {
 .entry-audio-embed,
 .format-video > .entry-media,
 .readly_big {
-	text-align: center;
 	margin-left: -160px;
 	margin-right: -160px;
 	max-width: -moz-calc(100% + 320px);
@@ -898,6 +897,82 @@ a.fancybox-next {
 	font-family: "Palatino Linotype", Palatino, "Book Antiqua", Baskerville, Georgia, serif;
 	font-weight: normal;
 	font-size: 20px;
+}
+
+.fancybox-inner img {
+	cursor: pointer;
+}
+
+/* Default galleries */
+.gallery {
+	display: inline-block;
+}
+
+.gallery img {
+	width: 100%;
+	height: auto;
+}
+
+.gallery .gallery-item {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 4.109589041% 4.109589041% 0;
+	font-size: 14px;
+	font-size: 1.4rem;
+	line-height: 18px;
+	line-height: 1.8rem;
+}
+
+.gallery-columns-1 .gallery-item {
+	width: 100%;
+	margin-right: 0;
+}
+
+.gallery-columns-2 .gallery-item {
+	width: 47.945205479%;
+}
+
+.gallery-columns-3 .gallery-item {
+	width: 30.593607306%;
+}
+
+.gallery-columns-4 .gallery-item {
+	width: 21.917808219%;
+}
+
+.gallery-columns-5 .gallery-item {
+	width: 16.712328767%;
+}
+
+.gallery-columns-6 .gallery-item {
+	width: 15.525114155%;
+	margin-right: 1.369863014%;
+}
+
+.gallery-columns-7 .gallery-item {
+	width: 13.111545988%;
+	margin-right: 1.369863014%;
+}
+
+.gallery-columns-8 .gallery-item {
+	width: 11.301369863%;
+	margin-right: 1.369863014%;
+}
+
+.gallery-columns-9 .gallery-item {
+	width: 9.893455099%;
+	margin-right: 1.369863014%;
+}
+
+.gallery-columns-2 .gallery-item:nth-of-type(2n),
+.gallery-columns-3 .gallery-item:nth-of-type(3n),
+.gallery-columns-4 .gallery-item:nth-of-type(4n),
+.gallery-columns-5 .gallery-item:nth-of-type(5n),
+.gallery-columns-6 .gallery-item:nth-of-type(6n),
+.gallery-columns-7 .gallery-item:nth-of-type(7n),
+.gallery-columns-8 .gallery-item:nth-of-type(8n),
+.gallery-columns-9 .gallery-item:nth-of-type(9n) {
+	margin-right: 0;
 }
 
 

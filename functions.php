@@ -107,7 +107,11 @@ add_action('widgets_init', 'readly_widgets_init');
  */
 function readly_scripts() {
 	wp_enqueue_style('fancybox-style', get_template_directory_uri().'/fancybox/jquery.fancybox.css?v=2.1.5');
-	wp_enqueue_style('style', get_stylesheet_uri());
+	wp_enqueue_style('readly-style', get_stylesheet_uri());
+	$css = '.gallery .gallery-item {
+	max-width: '.get_option('thumbnail_size_w').'px;
+}';
+	wp_add_inline_style('readly-style', $css);
 
 	wp_enqueue_script('navigation', get_template_directory_uri().'/js/navigation.js', array(), '20120206', true);
 
@@ -134,7 +138,7 @@ function readly_scripts() {
 	wp_enqueue_script('jquery-mousewheel', get_template_directory_uri().'/js/jquery.mousewheel.js', array('jquery'), '3.1.6', true);
 	wp_enqueue_script('fancybox', get_template_directory_uri().'/fancybox/jquery.fancybox.js', array('jquery'), '3b1', true);
 
-	wp_enqueue_script('readly', get_template_directory_uri().'/js/readly.js', array(), '20130408');
+	wp_enqueue_script('readly-script', get_template_directory_uri().'/js/readly.js', array(), '20130408');
 
 	if (!is_singular() && 'infinite-scroll' == get_theme_mod('page_navigation'))
 		wp_enqueue_script('infinite-scroll', get_template_directory_uri().'/js/jquery.infinitescroll.min.js', array('jquery'), '2.0b.110415', true);
@@ -205,24 +209,31 @@ add_action('wp_footer', 'readly_infinite_scroll_js', 100);
 
 class wpShower {
 	public static $color = '#1e83cb';
-	private static $galleries = array();
+	private static $gallery = null;
 
-	public static function catchGallery($attr) {
-		if (!isset($attr['ids']) || trim($attr['ids']) == '') return '';
-
-		$attachments = explode(',', $attr['ids']);
-
-		if (empty(self::$galleries) && get_post_format(get_the_ID()) == 'gallery') {
-			self::$galleries[] = $attachments;
-			return '';
+	public static function catchGallery($output) {
+		$preg = preg_match_all('/\[gallery(.*?)ids="(.*?)"\]/', $output, $match);
+		if ($preg) {
+			$disable_fancybox = get_theme_mod('readly_fancybox');
+			foreach ($match[0] as $key => $gallery) {
+				if (trim($match[2][$key]) == '') {
+					continue;
+				}
+				$attachments = explode(',', $match[2][$key]);
+				if (get_post_format(get_the_ID()) == 'gallery' && self::$gallery == null) {
+					self::$gallery = $disable_fancybox ? $gallery : $attachments;
+					$output = str_replace($gallery, '', $output);
+				} elseif (!$disable_fancybox) {
+					$output = str_replace($gallery, readly_formatted_gallery($attachments), $output);
+				}
+			}
 		}
-
-		return readly_formatted_gallery($attachments);
+		return $output;
 	}
 
-	private static function getGalleries() {
-		$results = self::$galleries;
-		self::$galleries = array();
+	private static function getGallery() {
+		$results = self::$gallery;
+		self::$gallery = null;
 		return $results;
 	}
 
@@ -231,32 +242,24 @@ class wpShower {
 	 */
 	public static function filteredContent($content = null) {
 		if ($content === null) {
-			$content = get_the_content(__('Read More<span></span>', 'readly'));
+			$content = get_the_content(__('Read More', 'outspoken'));
+			$content = apply_filters('the_content', $content);
+		} else {
+			global $wp_embed;
+			$content = do_shortcode($content);
+			$content = $wp_embed->autoembed($content);
 		}
-		$content = apply_filters('the_content', $content);
 		$content = str_replace('<p></p>', '', $content); // TODO: fix it (youtube embed adds empty paragraphs?)
 		return str_replace(']]>', ']]&gt;', $content);
 	}
 
 	public static function getContentAndAttachments() {
 		$content = self::filteredContent();
-
-		$galleries = self::getGalleries();
-		$attachments = array();
-		foreach ($galleries as $gallery) {
-			foreach ($gallery as $attachment_id) {
-				$attachments[] = $attachment_id;
-			}
-		}
-		return array('content' => $content, 'attachments' => $attachments);
+		return array('content' => $content, 'attachments' => self::getGallery());
 	}
 }
 
-/**
- * Removes galleries from post content
- */
-remove_shortcode('gallery');
-add_shortcode('gallery', array('wpShower', 'catchGallery'));
+add_filter('the_content', array('wpShower', 'catchGallery'), 1, 1);
 
 /* Audio & video boxes for posts */
 function readly_big_video_box($post) {
@@ -385,6 +388,9 @@ function readly_formatted_image() {
 }
 
 function readly_formatted_gallery($attachments, $class = '') {
+	if (is_string($attachments)) {
+		return '<div class="readly_big">'.wpShower::filteredContent($attachments).'</div>';
+	}
 	$html = '<div class="template-gallery'.($class != '' ? ' '.$class : '').'">
 	<div class="gallery-wrapper">';
 	foreach ($attachments as $attachment):

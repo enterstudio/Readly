@@ -57,6 +57,10 @@ jQuery(function() {
 		tpl: {
 			next: '<a title="Next" class="fancybox-nav fancybox-next" href="javascript:;">Next</a>',
 			prev: '<a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;">Previous</a>'
+		},
+		afterShow: function() {
+			jQuery('#fancybox-lock > .fancybox-close, #fancybox-lock > .fancybox-nav').remove();
+			jQuery('.fancybox-close, .fancybox-nav').appendTo('#fancybox-lock');
 		}
 	});
 	jQuery('body').on('click', '.fancybox-image', function() {

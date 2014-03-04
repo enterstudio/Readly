@@ -29,28 +29,22 @@
 	</header><!-- .entry-header -->
 	<?php endif; ?>
 
-	<?php if (is_search()): // Only display Excerpts for Search ?>
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-	<?php else: ?>
-		<?php
-		if ('audio' == $post_format) readly_formatted_audio();
-		elseif ('video' == $post_format) readly_formatted_video();
-		elseif ('image' == $post_format) readly_formatted_image();
-		elseif ('gallery' == $post_format) {
-			$result = wpShower::getContentAndAttachments();
-			echo readly_formatted_gallery($result['attachments'], 'readly_big');
-		}
-		?>
+	<?php
+	if ('audio' == $post_format) readly_formatted_audio();
+	elseif ('video' == $post_format) readly_formatted_video();
+	elseif ('image' == $post_format) readly_formatted_image();
+	elseif ('gallery' == $post_format) {
+		$result = wpShower::getContentAndAttachments();
+		echo readly_formatted_gallery($result['attachments'], 'readly_big');
+	}
+	?>
 
-		<div class="entry-content">
-			<?php
-			if ('gallery' == $post_format) echo $result['content'];
-			else the_content(__('Read More<span></span>', 'readly'));
-			?>
-		</div><!-- .entry-content -->
-	<?php endif; ?>
+	<div class="entry-content">
+		<?php
+		if ('gallery' == $post_format) echo $result['content'];
+		else the_content(__('Read More<span></span>', 'readly'));
+		?>
+	</div><!-- .entry-content -->
 
 	<?php if ('post' == get_post_type()): // Hide category and tag text for pages on Search ?>
 		<?php if ($post_format == 'quote'): ?>

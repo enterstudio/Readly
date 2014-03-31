@@ -48,7 +48,7 @@
 					$meta_text = __('Tagged %2$s', 'readly');
 				}
 				else {
-					$meta_text = __('', 'readly');
+					$meta_text = '';
 				}
 			}
 			else {

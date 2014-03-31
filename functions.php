@@ -242,7 +242,7 @@ class wpShower {
 	 */
 	public static function filteredContent($content = null) {
 		if ($content === null) {
-			$content = get_the_content(__('Read More', 'outspoken'));
+			$content = get_the_content(__('Read More', 'readly'));
 			$content = apply_filters('the_content', $content);
 		} else {
 			global $wp_embed;

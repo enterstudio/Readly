@@ -133,12 +133,12 @@ function readly_scripts() {
 
 	wp_enqueue_script('jquery-ui', get_template_directory_uri().'/js/jquery-ui-1.10.2.custom.min.js', array(), '20130317');
 
-	wp_enqueue_script('wpshower-responsive-videos', get_template_directory_uri().'/js/wpshower-responsive-videos.js', array('jquery'), '2013-08-15', true);
+	wp_enqueue_script('wpshower-responsive-videos', get_template_directory_uri().'/js/wpshower-responsive-videos.js', array('jquery'), '20140331', true);
 
 	wp_enqueue_script('jquery-mousewheel', get_template_directory_uri().'/js/jquery.mousewheel.js', array('jquery'), '3.1.6', true);
 	wp_enqueue_script('fancybox', get_template_directory_uri().'/fancybox/jquery.fancybox.js', array('jquery'), '3b1', true);
 
-	wp_enqueue_script('readly-script', get_template_directory_uri().'/js/readly.js', array(), '20130408');
+	wp_enqueue_script('readly-script', get_template_directory_uri().'/js/readly.js', array(), '20140331');
 
 	if (!is_singular() && 'infinite-scroll' == get_theme_mod('page_navigation'))
 		wp_enqueue_script('infinite-scroll', get_template_directory_uri().'/js/jquery.infinitescroll.min.js', array('jquery'), '2.0b.110415', true);
@@ -152,7 +152,7 @@ add_action('wp_enqueue_scripts', 'readly_scripts');
 function readly_admin_scripts_styles() {
 	wp_enqueue_style('readly-admin-style', get_template_directory_uri().'/admin.css');
 
-	wp_enqueue_script('readly-admin', get_template_directory_uri().'/js/admin.js', array(), '20130718', true);
+	wp_enqueue_script('readly-admin', get_template_directory_uri().'/js/admin.js', array(), '20140331', true);
 }
 
 add_action('admin_enqueue_scripts', 'readly_admin_scripts_styles');

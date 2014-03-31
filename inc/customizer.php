@@ -202,7 +202,7 @@ add_action('wp_head', 'readly_header_output');
  * @since Readly 1.2
  */
 function readly_customize_preview_js() {
-	wp_enqueue_script('readly_customizer', get_template_directory_uri().'/js/customizer.js', array('customize-preview'), '20130304', true);
+	wp_enqueue_script('readly_customizer', get_template_directory_uri().'/js/customizer.js', array('customize-preview'), '20140331', true);
 }
 
 add_action('customize_preview_init', 'readly_customize_preview_js');

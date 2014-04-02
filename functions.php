@@ -246,8 +246,8 @@ class wpShower {
 			$content = apply_filters('the_content', $content);
 		} else {
 			global $wp_embed;
-			$content = do_shortcode($content);
 			$content = $wp_embed->autoembed($content);
+			$content = do_shortcode($content);
 		}
 		$content = str_replace('<p></p>', '', $content); // TODO: fix it (youtube embed adds empty paragraphs?)
 		return str_replace(']]>', ']]&gt;', $content);
